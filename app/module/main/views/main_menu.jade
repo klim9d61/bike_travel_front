@@ -1,0 +1,11 @@
+ul.nav.navbar-nav
+    li(ng-if="!isDropdown()" ng-class="{active:isActiveCompany(cap.company.id)}" ng-show="config.currentUserId" ng-repeat="cap in companiesAndParticipants")
+        a(href="#/companies/{{cap.company.id}}") {{ cap.company.name }}
+    li.dropdown(ng-if="isDropdown()" ng-show="config.currentUserId")
+        a.dropdown-toggle(href="#" data-toggle="dropdown") {{ 'main.menu.companies' | translate:this }}
+            span.caret
+        ul.dropdown-menu(role="menu")
+            li(ng-show="config.currentUserId" ng-repeat="cap in companiesAndParticipants")
+                a(href="#/companies/{{cap.company.id}}") {{ cap.company.name }}
+    li(ng-class="{active:isActive('/admin')}" ng-show="config.user.permissions.companiesManage || config.user.permissions.leadersManage")
+        a(href="#/admin" translate="main.menu.toolAdministration")
