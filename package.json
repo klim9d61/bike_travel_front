@@ -19,5 +19,9 @@
     "type": "git",
     "url": "https://klim89@bitbucket.org/klim89/closeproject.git"
   },
-  "author": "Clementii Cicali"
+  "author": "Clementii Cicali",
+  "dependencies": {
+    "gzippo": "~0.2.0",
+    "express": "~4.13.0"
+  }
 }
