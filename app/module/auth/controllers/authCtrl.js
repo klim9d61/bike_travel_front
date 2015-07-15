@@ -5,26 +5,40 @@
         .module('cpApp.auth')
         .controller('AuthCtrl', AuthCtrl);
 
-    AuthCtrl.$inject = ['Restangular'];
+    AuthCtrl.$inject = ['Restangular', 'authService'];
 
-    function AuthCtrl(Restangular) {
+    function AuthCtrl(Restangular, authService) {
 
         /* jshint validthis: true */
         var vm = this;
 
-        //vm.companies = [];
-
-        Restangular.all('travels.json').getList().then(function(result) {
-            vm.tasks = result;
-
-        });
+        vm.login = {};
+        vm.submitLogin = submitLogin;
 
         activate();
 
         function activate() {
-            vm.companies = ['LE', 'Yopeso', 'Endava'];
+
         }
 
-        console.log(vm.companies);
+        function submitLogin() {
+
+            console.log(vm.login);
+
+            Restangular.one('users/attempt_login').customPOST(vm.login).then(function(result) {
+
+                authService.authorize(result);
+
+                console.log(result);
+                console.log("Object saved OK");
+            }, function() {
+                console.log("There was an error saving");
+            });
+            //path.attempt_login(vm.login);
+
+
+
+
+        }
     }
 })();
