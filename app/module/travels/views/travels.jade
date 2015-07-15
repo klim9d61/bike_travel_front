@@ -1,0 +1,7 @@
+h2 Travels:
+
+div(ng-repeat="travel in vm.travels")
+    div
+        a(ui-sref="show-travel({ catID: {{vm.catID}}, ID: {{travel.id}} })") {{ travel.name }}
+    div {{ travel.visible }}
+    div {{ travel.position }}
