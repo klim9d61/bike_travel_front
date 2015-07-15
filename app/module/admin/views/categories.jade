@@ -1,0 +1,77 @@
+br
+div
+    h4 Travel Categories
+    a.btn.btn-primary.btn-sm(ui-sref="add-travel-category") Add
+    div.table-responsive.test
+        table.table.table-striped
+            thead
+                tr
+                    th #
+                    th Name
+                    th Visible
+                    th Position
+                    th
+                    th
+            tbody
+                tr(ng-repeat="category in vm.travelCategories")
+                    td {{$index+1}}
+                    td
+                        a(ui-sref="travels({ catID: {{category.id}} })") {{ category.name }}
+                    td
+                        input(ng-model="category.visible" ng-change="vm.changeVisible(category)" type="checkbox")
+                    td {{ category.position }}
+                    td
+                        a.btn.btn-primary.btn-xs(ui-sref="edit-travel-category({ catID: {{category.id}} })" role="button") edit
+                    td
+                        button.btn.btn-danger.btn-xs(ng-click="vm.deleteTravelCategory(category)" type="button") delete
+
+div
+    h4 Review Categories
+    a.btn.btn-primary.btn-sm(ui-sref="add-review-category") Add
+    div.table-responsive.test
+        table.table.table-striped
+            thead
+                tr
+                    th #
+                    th Name
+                    th Visible
+                    th Position
+                    th
+                    th
+            tbody
+                tr(ng-repeat="category in vm.reviewCategories")
+                    td {{$index+1}}
+                    td
+                        a(ui-sref="reviews({ catID: {{category.id}} })") {{ category.name }}
+                    td
+                        input(ng-model="category.visible" ng-change="vm.changeVisible(category)" type="checkbox")
+                    td {{ category.position }}
+                    td
+                        a.btn.btn-primary.btn-xs(ui-sref="edit-review-category({ catID: {{category.id}} })" role="button") edit
+                    td
+                        button.btn.btn-danger.btn-xs(ng-click="vm.deleteReviewCategory(category)" type="button") delete
+
+div
+    h4 Guide Categories
+    div in progress...
+//    a.btn.btn-primary.btn-sm(ui-sref="add-guide-category") Add
+//    div.table-responsive.test
+//        table.table.table-striped
+//            thead
+//                tr
+//                    th #
+//                    th Name
+//                    th Visible
+//                    th Position
+//                    th
+//                    th
+//            tbody
+//                tr(ng-repeat="category in vm.travelCategories")
+//                    td {{$index+1}}
+//                    td {{ category.name }}
+//                    td {{ category.visible }}
+//                    td {{ category.position }}
+//                    td
+//                        a.btn.btn-primary.btn-xs(ui-sref="edit-travel-category({ catID: {{category.id}} })" role="button") edit
+//                    td
+//                        a.btn.btn-danger.btn-xs(ui-sref="delete-travel-category({ catID: {{category.id}} })" role="button") delete

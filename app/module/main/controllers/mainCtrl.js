@@ -2,29 +2,28 @@
     'use strict';
 
     angular
-        .module('cpApp.auth')
-        .controller('AuthCtrl', AuthCtrl);
+        .module('cpApp.main')
+        .controller('MainCtrl', MainCtrl);
 
-    AuthCtrl.$inject = ['Restangular'];
+    MainCtrl.$inject = ['Restangular'];
 
-    function AuthCtrl(Restangular) {
+    function MainCtrl(Restangular) {
 
         /* jshint validthis: true */
         var vm = this;
 
-        //vm.companies = [];
-
-        Restangular.all('travels.json').getList().then(function(result) {
-            vm.tasks = result;
-
-        });
+        //Restangular.all('travel_categories.json').getList().then(function(result) {
+        //    vm.travelCategories = result;
+        //    console.log(result);
+        //
+        //});
 
         activate();
 
         function activate() {
-            vm.companies = ['LE', 'Yopeso', 'Endava'];
+            //vm.companies = ['LE', 'Yopeso', 'Endava'];
         }
 
-        console.log(vm.companies);
+        //console.log(vm.companies);
     }
 })();
