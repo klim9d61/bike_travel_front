@@ -1,0 +1,17 @@
+form.form-horizontal(method="post" name="addForm" ng-submit="vm.submitAdd()" novalidate="")
+    h2.form-signin-heading Add Review Category
+    div.form-group
+        label.control-label.col-sm-2(for="inputName") Category Name
+        div.col-sm-4
+            input.form-control(ng-model="vm.add.name" type="text" id="inputName" placeholder="Name" required="" autofocus="")
+    div.form-group
+        label.control-label.col-sm-2(for="inputPosition") Position
+        div.col-sm-4
+            input.form-control(ng-model="vm.add.position" type="number" id="inputPosition" required="")
+    div.form-group
+        label.control-label.col-sm-2(for="inputVisible") Visible
+        div.col-sm-4
+            input.form-control(ng-model="vm.add.visible" type="number" id="inputVisible" required="")
+    div.form-group
+        div.col-sm-2.col-sm-offset-2
+            button.btn.btn-primary.btn-block(type="submit") Add
