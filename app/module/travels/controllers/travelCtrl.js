@@ -12,7 +12,6 @@
         /* jshint validthis: true */
         var vm = this;
 
-
         Restangular.one('travel_categories', $stateParams.catID).one('travels.json').getList().then(function(result) {
 
         //Restangular.all('travel_categories/'+$stateParams.catID+'/travels.json').getList().then(function(result) {
@@ -24,7 +23,5 @@
         function activate() {
             console.log($stateParams.catID);
         }
-
-
     }
 })();
